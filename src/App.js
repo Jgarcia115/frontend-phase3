@@ -1,9 +1,9 @@
 import './App.css';
-import PlayerList from './Playerlist';
+import PlayerList from './PlayerList';
 import Purpose from './Purpose';
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from '/Header';
+import Header from './Header';
 import NavBar from './NavBar';
 import AddPlayer from './AddPlayer';
 
