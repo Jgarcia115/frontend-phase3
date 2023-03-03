@@ -1,12 +1,12 @@
 import React from "react"
-import Players from "./Players";
+import Player from "./Player";
 
 function PlayerList({ players, onRemovePlayer }) {
     return (
         <div className='List'>
             <div className="container">
             {players.map(player => {
-                return <Players player={player} onRemovePlayer={onRemovePlayer}/>
+                return <Player key={player.id} player={player} onRemovePlayer={onRemovePlayer}/>
             })}
 
             </div>
