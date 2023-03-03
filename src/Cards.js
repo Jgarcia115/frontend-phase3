@@ -1,10 +1,10 @@
 import React from "react"
 
-function Cards({ player, onRemovePlayer }) {
+function Cards({ player, removePlayer }) {
     const { name, rank, id } = player
 
     function handleClick() {
-        onRemovePlayer(player.id)
+        removePlayer(player.id)
     }
     
     return (

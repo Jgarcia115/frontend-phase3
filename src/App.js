@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from '/Header';
 import NavBar from './NavBar';
+import AddPlayer from './AddPlayer';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   }
 
   useEffect(()=> {
-    fetch("http://localhost:3000/toys")
+    fetch("http://localhost:9292/players")
     .then(r=> r.json())
     .then(data => {
       setPlayers(data)
@@ -36,7 +37,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Purpose />}/>
-            <Route path="/roster" element={<PlayerList players={players} onRemovePlayer={removeplayer} />}/>
+            <Route path="/roster" element={<PlayerList players={players} onRemovePlayer={removePlayer} />}/>
             <Route path="/add" element={<AddPlayer onAddPlayer={addPlayer}/>}/>
           </Routes>
       </div>
