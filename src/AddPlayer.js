@@ -40,7 +40,7 @@ function AddPlayer({ onAddPlayer }) {
 
     return (
         <section className='Add'>
-            <h1>Add PLayer</h1>
+            <h1>Add Player</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     <input

@@ -37,7 +37,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Purpose />}/>
-            <Route path="/roster" element={<PlayerList players={players} onRemovePlayer={removePlayer} />}/>
+            <Route path="/roster" element={<PlayerList players={players} onRemovePlayer={removePlayer} onRemoveAgent={onRemoveAgent} onChangeAgent={onChangeAgent} />}/>
             <Route path="/add" element={<AddPlayer onAddPlayer={addPlayer}/>}/>
           </Routes>
       </div>
