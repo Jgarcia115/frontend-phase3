@@ -30,6 +30,15 @@ function App() {
     setPlayers(updatedPlayers)
   }
 
+  function onDeleteAgent(agent) {
+    const player = players.find((player) => player.id === agent.player_id)
+    const updatedAgents = player.agents.filter((a)=> a.id !== agent.id)
+    const updatedPlayer = {...player, agents: updatedAgents}
+    const updatedPlayers = players.map((p) => p.id === player.id ? updatedPlayer : p)
+    setPlayers(updatedPlayers)
+  }
+   
+
   return (
     <div className="App">
       <Header/>
@@ -37,7 +46,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Purpose />}/>
-            <Route path="/roster" element={<PlayerList players={players} onRemovePlayer={removePlayer} onRemoveAgent={onRemoveAgent} onChangeAgent={onChangeAgent} />}/>
+            <Route path="/roster" element={<PlayerList players={players} onRemovePlayer={removePlayer} onDeleteAgent={onDeleteAgent}/>}/>
             <Route path="/add" element={<AddPlayer onAddPlayer={addPlayer}/>}/>
           </Routes>
       </div>
