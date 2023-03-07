@@ -6,7 +6,6 @@ function AddPlayer({ onAddPlayer }) {
     const [formData, setFormData] = useState({
         name: "",
         rank: "",
-
     })
 
     const navigate = useNavigate();
@@ -22,7 +21,8 @@ function AddPlayer({ onAddPlayer }) {
         e.preventDefault();
         const playerObj = {
           "name": formData.name,
-          "rank": formData.rank
+          "rank": formData.rank,
+          "agents": formData.agents
         }
         fetch("http://localhost:9292/players", {
           method: "POST",

@@ -14,6 +14,7 @@ function App() {
 
   function addPlayer(newPlayer) {
     const updatedPlayers = [...players, newPlayer]
+    console.log(updatedPlayers)
     setPlayers(updatedPlayers)
   }
 
@@ -37,6 +38,19 @@ function App() {
     const updatedPlayers = players.map((p) => p.id === player.id ? updatedPlayer : p)
     setPlayers(updatedPlayers)
   }
+
+  function onChangeAgent(data) {
+    const player = players.find((player) => player.id === data.player_id)
+    const updatedAgents = player.agents.map((a)=> a.id === data.id ? data : a)
+    const updatedPlayer = {...player, agents: updatedAgents}
+    const updatedPlayers = players.map((p) => p.id === player.id ? updatedPlayer : p)
+    setPlayers(updatedPlayers)
+  }
+
+  function onAddAgent(data) {
+    const player = players.find((player) => player.id === data.player_id)
+    player.agents.push(data)
+  }
    
 
   return (
@@ -46,7 +60,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Purpose />}/>
-            <Route path="/roster" element={<PlayerList players={players} onRemovePlayer={removePlayer} onDeleteAgent={onDeleteAgent}/>}/>
+            <Route path="/roster" element={<PlayerList players={players} onRemovePlayer={removePlayer} onDeleteAgent={onDeleteAgent} onChangeAgent={onChangeAgent} onAddAgent={onAddAgent}/>}/>
             <Route path="/add" element={<AddPlayer onAddPlayer={addPlayer}/>}/>
           </Routes>
       </div>
