@@ -14,7 +14,6 @@ function App() {
 
   function addPlayer(newPlayer) {
     const updatedPlayers = [...players, newPlayer]
-    console.log(updatedPlayers)
     setPlayers(updatedPlayers)
   }
 
